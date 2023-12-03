@@ -18,7 +18,7 @@ Design a debugging scenario, and write your report as a conversation on EdStem. 
 
 2. A response from a TA asking a leading question or suggesting a command to try (To be clear, you are mimicking a TA here.)
   - TA: Hi,
-    A good way to trace what triggered the symtom is to use `jdb` to get a step by step
+    A good way to trace what triggered the symtom is to use `jdb` allows you to visualize the process step by step.
 
 3. Another screenshot/terminal output showing what information the student got from trying that, and a clear description of what the bug is.
 
