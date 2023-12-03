@@ -13,7 +13,7 @@ Design a debugging scenario, and write your report as a conversation on EdStem. 
   -  [Image]!(test_trigger.png)
  
 - Here are the screenshots of how my ListExamples.java and ListExamplesTests.java files look like:
-  -  ListExamples.java: [Image]!(ListExamples.png)
+  -  ListExamples.java: [Image]!(ListExamples_before.png)
   -  ListExamplesTests.java: [Image]!(ListExamplesTests.png)
 
 2. A response from a TA asking a leading question or suggesting a command to try (To be clear, you are mimicking a TA here.)
@@ -27,7 +27,7 @@ Design a debugging scenario, and write your report as a conversation on EdStem. 
   - [Image]!(file_directory_structure.png)
  
 - The contents of each file before fixing the bug:
-  -  ListExamples.java: [Image]!(ListExamples.png)
+  -  ListExamples.java: [Image]!(ListExamples_before.png)
   -  ListExamplesTests.java: [Image]!(ListExamplesTests.png)
   -  test.sh: [Image]!(test.png)
  
