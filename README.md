@@ -5,7 +5,16 @@ Design a debugging scenario, and write your report as a conversation on EdStem. 
 
 1. The original post from a student with a screenshot showing a symptom and a description of a guess at the bug/some sense of what the failure-inducing input is.
 
-- Hi TA, I ran my code but it seems like there's a bug situation going on, but I am not sure how to fix it. Here are the screenshot for the symtom op
+- Hi TA,
+  I ran my code but it seems like there's a bug situation going on, but I am not sure how to fix it.
+  I am guessing the bug must be somehow related to a failure-inducing input inside ListExamplesTests.java, but I am not too sure which part of the code I did wrong in ListExamples.java to trigger.(tbd)
+
+- Here is the screenshot for the symtom output:
+  -  [Image]!(test_trigger.png)
+ 
+- Here are the screenshots of how my ListExamples.java and ListExamplesTests.java files look like:
+  -  ListExamples.java: [Image]!(ListExamples.png)
+  -  ListExamplesTests.java: [Image]!(ListExamplesTests.png)
 
 2. A response from a TA asking a leading question or suggesting a command to try (To be clear, you are mimicking a TA here.)
 
