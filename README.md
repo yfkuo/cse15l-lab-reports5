@@ -10,11 +10,11 @@ Design a debugging scenario, and write your report as a conversation on EdStem. 
   I am guessing the bug must be somehow related to a failure-inducing input inside ListExamplesTests.java, but I am not too sure which part of the code I did wrong in ListExamples.java to trigger.(tbd)
 
 - Here is the screenshot for the symtom output:
-  -  [Image]!(test_trigger.png)
+  -  ![Image](test_trigger.png)
  
 - Here are the screenshots of how my ListExamples.java and ListExamplesTests.java files look like:
-  -  ListExamples.java: [Image]!(ListExamples_before.png)
-  -  ListExamplesTests.java: [Image]!(ListExamplesTests.png)
+  -  ListExamples.java: ![Image](ListExamples_before.png)
+  -  ListExamplesTests.java: ![Image](ListExamplesTests.png)
 
 2. A response from a TA asking a leading question or suggesting a command to try (To be clear, you are mimicking a TA here.)
 
@@ -24,17 +24,17 @@ Design a debugging scenario, and write your report as a conversation on EdStem. 
 
 4. At the end, all the information needed about the setup including:
 - The file & directory structure needed:
-  - [Image]!(file_directory_structure.png)
+  - ![Image](file_directory_structure.png)
  
 - The contents of each file before fixing the bug:
-  -  ListExamples.java: [Image]!(ListExamples_before.png)
-  -  ListExamplesTests.java: [Image]!(ListExamplesTests.png)
-  -  test.sh: [Image]!(test.png)
+  -  ListExamples.java: ![Image](ListExamples_before.png)
+  -  ListExamplesTests.java: ![Image](ListExamplesTests.png)
+  -  test.sh: ![Image](test.png)
  
 - The full command line (or lines) you ran to trigger the bug
   -  I put my command lines in a bash script called test, then I ran bash test.sh to trigger the bug.
-  -  [Image]!(test_trigger.png)
-  -  [Image]!(test_jdb.png)
+  -  ![Image](test_trigger.png)
+  -  ![Image](test_jdb.png)
  
 - A description of what to edit to fix the bug:
   - step
