@@ -7,7 +7,7 @@ Design a debugging scenario, and write your report as a conversation on EdStem. 
 
 - Student: Hi TA,
   I ran my program, but a failure-inducing ouput showed up and said `expected:<[a, apple]> but was:<[apple, a]>`.
-  Based on the output message saying `at ListExamplesTests.testFilter(ListExamplesTests.java:15)`, I am guessing that the symtom must be somehow trigger by the `filtered` variable in `ListExamplesTests.java`. How could I trace which part of the code trigger this symtom? Thank you!
+  Based on the output message saying `at ListExamplesTests.testFilter(ListExamplesTests.java:15)`, so I am guessing that the symtom must be somehow triggered by line 15 of the `ListExamplesTests.testFilter` function in `ListExamplesTests.java`. How could I trace which part of the code trigger this symtom? Thank you!
 
 - Here is the screenshot for the symtom output:
   -  ![Image](test_trigger.png)
@@ -18,7 +18,8 @@ Design a debugging scenario, and write your report as a conversation on EdStem. 
 
 2. A response from a TA asking a leading question or suggesting a command to try (To be clear, you are mimicking a TA here.)
   - TA: Hi,
-    A good way to trace what triggered the symtom is to use `jdb` allows you to visualize the process step by step.
+    A good way to trace what triggers a symtom is to use `jdb`, it allows you to visualize the process step by step.
+    When you run `jdb`, try to stop at `ListExamplesTests.testFilter` first, and then trace what each step is doing by using the command `step`. Each step you can use `locals` or `print` to see what the variables look like, and from there you would be able to find which part of the codes has gone wrong through out the tracing process.
 
 3. Another screenshot/terminal output showing what information the student got from trying that, and a clear description of what the bug is.
 
@@ -38,7 +39,7 @@ Design a debugging scenario, and write your report as a conversation on EdStem. 
   -  ![Image](test_jdb.png)
  
 - A description of what to edit to fix the bug:
-  - step
+  - step:trigger by the `filtered` variable in `ListExamplesTests.java`.
   - step
   
 You should actually set up and run the scenario from your screenshots. It should involve at least a Java file and a bash script. Describing the bug should involve reading some output at the terminal resulting from running one or more commands. Design an error that produces more interesting output than a single message about a syntax or unbound identifier error – showcase some interesting wrong behavior! Feel free to set this up by cloning and breaking some existing code like the grading script or code from class, or by designing something of your own from scratch, etc.
