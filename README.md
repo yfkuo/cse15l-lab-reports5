@@ -6,8 +6,8 @@ Design a debugging scenario, and write your report as a conversation on EdStem. 
 1. The original post from a student with a screenshot showing a symptom and a description of a guess at the bug/some sense of what the failure-inducing input is.
 
 - Student: Hi TA,
-  I ran my code but it seems like there's a bug situation going on, but I am not sure how to fix it.
-  I am guessing the bug must be somehow related to a failure-inducing input line 15 inside ListExamplesTests.java, but I am not too sure which part of the code I did wrong in ListExamples.java to trigger that.
+  I ran my program, but a failure-inducing ouput showed up and said `expected:<[a, apple]> but was:<[apple, a]>`.
+  Based on the output message saying `at ListExamplesTests.testFilter(ListExamplesTests.java:15)`, I am guessing that the symtom must be somehow trigger by the `filtered` variable in `ListExamplesTests.java`. How could I trace which part of the code trigger this symtom? Thank you!
 
 - Here is the screenshot for the symtom output:
   -  ![Image](test_trigger.png)
@@ -17,7 +17,8 @@ Design a debugging scenario, and write your report as a conversation on EdStem. 
   -  ListExamplesTests.java: ![Image](ListExamplesTests.png)
 
 2. A response from a TA asking a leading question or suggesting a command to try (To be clear, you are mimicking a TA here.)
-  - TA: Hi, 
+  - TA: Hi,
+    A good way to trace what triggered the symtom is to use `jdb` to get a step by step
 
 3. Another screenshot/terminal output showing what information the student got from trying that, and a clear description of what the bug is.
 
