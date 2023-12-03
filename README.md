@@ -7,7 +7,7 @@ Design a debugging scenario, and write your report as a conversation on EdStem. 
 
 - Hi TA,
   I ran my code but it seems like there's a bug situation going on, but I am not sure how to fix it.
-  I am guessing the bug must be somehow related to a failure-inducing input inside ListExamplesTests.java, but I am not too sure which part of the code I did wrong in ListExamples.java to trigger.(tbd)
+  I am guessing the bug must be somehow related to a failure-inducing input line 15 inside ListExamplesTests.java, but I am not too sure which part of the code I did wrong in ListExamples.java to trigger that.
 
 - Here is the screenshot for the symtom output:
   -  ![Image](test_trigger.png)
