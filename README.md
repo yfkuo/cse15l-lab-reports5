@@ -75,7 +75,7 @@ It should have:
 ## Part 2 – Reflection
 In a couple of sentences, describe something you learned from your lab experience in the second half of this quarter that you didn’t know before. It could be a technical topic we addressed specifically, something cool you found out on your own building on labs, something you learned from a tutor or classmate, and so on. It doesn’t have to be specifically related to a lab writeup, we just want to hear about cool things you learned!
 
-- I think the coolest thing I learned from the second half of this quarter was `vim`! `Vim` allows us to edit, navigate, and search for text more efficiently. For example, if I were to change a variable name that had been used many times in a file already. Usually, I would have to change each of them one by one. However, with `vim`, I could change all of them al at once with one command. Another cool thing I learned was putting command lines in a bash script, so we could run the command lines without typing or executing them one by one. I am extremely suprised by how these two tools have significantly improved my code editing process.
+- I think the coolest thing I learned from the second half of this quarter was `vim`! `Vim` allows us to edit, navigate, and search for text more efficiently. For example, if I were to change a variable name that had been used many times in a file already. Usually, I would have to change each of them one by one. However, with `vim`, I could change all of them al at once with one command. Another cool thing I learned was putting command lines in a bash script, so we could run the command lines without typing or executing them one by one. I am extremely surprised by how these two tools have significantly improved my code editing process.
 
 
 
