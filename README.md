@@ -63,7 +63,7 @@ Design a debugging scenario, and write your report as a conversation on EdStem. 
   - ListExamples.java after fixing the bug:
     -  ![Image](ListExamples_after.png)
   - Successful output after fixing the bug:
-    -  ![Image](success.png)
+    -  ![Image](success_output.png)
   
 You should actually set up and run the scenario from your screenshots. It should involve at least a Java file and a bash script. Describing the bug should involve reading some output at the terminal resulting from running one or more commands. Design an error that produces more interesting output than a single message about a syntax or unbound identifier error – showcase some interesting wrong behavior! Feel free to set this up by cloning and breaking some existing code like the grading script or code from class, or by designing something of your own from scratch, etc.
 
