@@ -7,8 +7,7 @@ It should have:
 
 ### 1.The original post from a student with a screenshot showing a symptom and a description of a guess at the bug/some sense of what the failure-inducing input is.
   - Student: Hi TA,
-    I ran my program, but a failure-inducing ouput showed up and said `expected:<[a, apple]> but was:<[apple, a]>`.
-    Based on the output message says `at ListExamplesTests.testFilter(ListExamplesTests.java:15)`, I am guessing that the symptom must be somehow triggered by line 15 of the `ListExamplesTests.testFilter` function in `ListExamplesTests.java`. I want to start with checking which part of the code trigger this symptom. Is there a step by step way to trace what stores in each variable without having to use `System.out.prinln(some_variable)` to check each variable? Thank you!
+    I ran my program, but a failure-inducing ouput showed up and said `expected:<[a, b, apple, avocado, b, app]> but was:<[app, b, avocado, apple, b, a]>`. Based on the output message says `at ListExamplesTests.testFilter(ListExamplesTests.java:22)`, I am guessing that the symptom must be somehow triggered by line 22 of the `ListExamplesTests.testFilter` function in `ListExamplesTests.java`. I want to start with checking which part of the code trigger this symptom. Is there a step by step way to trace what stores in each variable without having to use `System.out.prinln(some_variable)` to check each variable? Thank you!
   
   - Here is the screenshot for the symptom output after executing the bash script `bash test.sh`:
     -  ![Image](test_trigger.png)
@@ -24,11 +23,14 @@ It should have:
 
 ### 3. Another screenshot/terminal output showing what information the student got from trying that, and a clear description of what the bug is.
   -  Student: Hi TA,
-     Thanks for the guidance! After trying out `jdb`, I was able to identify what triggered the symptom more efficiently. It seems like the list variable called `filtered` in `ListExamplesTests.java` should be stored as `filtered = "[a, apple]"`, but it was stored reversely as `filtered = "[apple, a]"` instead because of the line 15 code `result.add(0, s);` from `ListExamplesTests.java`. I found that the reason why `result.add(0, s);` adds strings reversely to `filtered` is because the `0` represents the first position, so `result.add(0, s);` allows string `s` to be added to the front of the `result` list.
+     Thanks for the guidance! After trying out `jdb`, I was able to identify what triggered the symptom more efficiently. It seems like the list variable called `filtered` in `ListExamplesTests.java` should be stored as `filtered = "[a, b, apple, avocado, b, app]"`, but it was stored reversely as `filtered = "[app, b, avocado, apple, b, a]"` instead because of the line 22 code `result.add(0, s);` from `ListExamplesTests.java`. I found that the reason why `result.add(0, s);` adds strings reversely to `filtered` is because the `0` represents the first position, so `result.add(0, s);` allows string `s` to be added to the front of the `result` list.
 
   - Here is the screenshot of the terminal output after trying `jdb`:
     -  ![Image](jdb_bash.png)
     -  ![Image](jdb.png)
+    -  ![Image](jdb1.png)
+    -  ![Image](jdb2.png)
+    -  ![Image](jdb3.png)
 
 ### 4. At the end, all the information needed about the setup including:
   - The file & directory structure needed:
@@ -59,9 +61,9 @@ It should have:
    
   - A description of what to edit to fix the bug:
     - After following TA's guidance, the student was able to identify the list variable `filtered` was what triggered the symptom.
-    - Expected `filtered` was stored as `filtered = "[apple, a]"` instead of `filtered = "[a, apple]"`.
+    - Symtom: Expected `filtered` was stored as `filtered = "[app, b, avocado, apple, b, a]"` instead of `filtered = "[a, b, apple, avocado, b, app]"`.
     - The line 15 code `result.add(0, s);` from `ListExamplesTests.java` was what caused the list variable `filtered` stored strings reversely. 
-    - To fix the bug, I edited the line 15 code from `result.add(0, s);` to `result.add(s);`, so now `result.add(s);` adds strings to `filtered` in ascending order, e.g. `filtered = "[a, apple]"`.
+    - To fix the bug, I edited the line 15 code from `result.add(0, s);` to `result.add(s);`, so now `result.add(s);` adds strings to `filtered` in ascending order, e.g. `filtered = "[a, b, apple, avocado, b, app]"`.
     - This is how ListExamples.java looks like after fixing the bug:
       -  ![Image](ListExamples_after.png)
     - Successful output after fixing the bug:
