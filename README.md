@@ -7,9 +7,9 @@ Design a debugging scenario, and write your report as a conversation on EdStem. 
 
 - Student: Hi TA,
   I ran my program, but a failure-inducing ouput showed up and said `expected:<[a, apple]> but was:<[apple, a]>`.
-  Based on the output message saying `at ListExamplesTests.testFilter(ListExamplesTests.java:15)`, so I am guessing that the symtom must be somehow triggered by line 15 of the `ListExamplesTests.testFilter` function in `ListExamplesTests.java`. How could I trace which part of the code trigger this symtom? Thank you!
+  Based on the output message saying `at ListExamplesTests.testFilter(ListExamplesTests.java:15)`, so I am guessing that the symptom must be somehow triggered by line 15 of the `ListExamplesTests.testFilter` function in `ListExamplesTests.java`. How could I trace which part of the code trigger this symptom? Thank you!
 
-- Here is the screenshot for the symtom output:
+- Here is the screenshot for the symptom output after executing the bash script `bash test.sh`:
   -  ![Image](test_trigger.png)
  
 - Here are the screenshots of how my ListExamples.java and ListExamplesTests.java files look like:
@@ -18,15 +18,32 @@ Design a debugging scenario, and write your report as a conversation on EdStem. 
 
 2. A response from a TA asking a leading question or suggesting a command to try (To be clear, you are mimicking a TA here.)
   - TA: Hi,
-    A good way to trace what triggers a symtom is to use `jdb`, it allows you to visualize the process step by step.
-    When you run `jdb`, try to stop at `ListExamplesTests.testFilter` first, and then trace what each step is doing by using the command `step`. Each step you can use `locals` or `print` to see what the variables look like, and from there you would be able to find which part of the codes has gone wrong through out the tracing process.
+    A good way to trace what triggers a symptom is to use `jdb`, it allows you to visualize the process step by step.
+    When you run `jdb`, you can stop at `ListExamplesTests.testFilter` first, then trace what each code line is doing, and use `next` command to execute to the next line in the current stack frame. Each code line you can use `print` to see what the variables look like, and from there you would be able to find which part of the codes has gone wrong throughout the tracing process.
 
 3. Another screenshot/terminal output showing what information the student got from trying that, and a clear description of what the bug is.
+  -  Student: Hi TA,
+     Thanks for the guidance! After trying out `jdb`, I was able to identify what triggered the symptom. It seems like the list variable called `filtered` in `ListExamplesTests.java` should be stored as `filtered = "[a, apple]"`, but it was stored reversely as `filtered = "[apple, a]"` instead because of the line 15 code `result.add(0, s);` from `ListExamplesTests.java`. The reason why `result.add(0, s);` adds strings reversely to `filtered` is because the `0` inside `result.add(0, s);` allows string `s` to be added to the front of the `result` list.
 
+  - Here is the screenshot of the terminal output after trying `jdb`:
+    -  ![Image](jdb.png)
 
 4. At the end, all the information needed about the setup including:
 - The file & directory structure needed:
   - ![Image](file_directory_structure.png)
+    -  Absolute paths to each files
+      -  /Users/fionakuo/lab7/test.sh
+      -  /Users/fionakuo/lab7/ListExamplesTests.java
+      -  /Users/fionakuo/lab7/ListExamples.java
+      -  /Users/fionakuo/lab7/ListExamples.class 
+      -  /Users/fionakuo/lab7/ListExamplesTests.class
+      -  /Users/fionakuo/lab7/StringChecker.class
+      -  /Users/fionakuo/lab7/.gitignore
+      -  /Users/fionakuo/lab7/lib/junit-4.13.2.jar
+      -  /Users/fionakuo/lab7/lib/hamcrest-core-1.3.jar
+
+  - All absolute path to each files in `lab7`:
+    - ![Image](all_path.png)
  
 - The contents of each file before fixing the bug:
   -  ListExamples.java: ![Image](ListExamples_before.png)
@@ -39,8 +56,14 @@ Design a debugging scenario, and write your report as a conversation on EdStem. 
   -  ![Image](test_jdb.png)
  
 - A description of what to edit to fix the bug:
-  - step:trigger by the `filtered` variable in `ListExamplesTests.java`.
-  - step
+  - After following TA's guidance, the student was able to identify the list variable `filtered` was what triggered the symptom.
+  - Expected `filtered` was stored as `filtered = "[apple, a]"` instead of `filtered = "[a, apple]"`.
+  - The line 15 code `result.add(0, s);` from `ListExamplesTests.java` was what caused the list variable `filtered` stored strings reversely. 
+  - To fix the bug, I edited the line 15 code from `result.add(0, s);` to `result.add(s);`, so now `filtered` stores strings in ascending order, e.g. `filtered = "[a, apple]"`.
+  - ListExamples.java after fixing the bug:
+    -  ![Image](ListExamples_after.png)
+  - Successful output after fixing the bug:
+    -  ![Image](success.png)
   
 You should actually set up and run the scenario from your screenshots. It should involve at least a Java file and a bash script. Describing the bug should involve reading some output at the terminal resulting from running one or more commands. Design an error that produces more interesting output than a single message about a syntax or unbound identifier error – showcase some interesting wrong behavior! Feel free to set this up by cloning and breaking some existing code like the grading script or code from class, or by designing something of your own from scratch, etc.
 
