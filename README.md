@@ -33,16 +33,16 @@ It should have:
 4. At the end, all the information needed about the setup including:
   - The file & directory structure needed:
     - ![Image](file_directory_structure.png)
-      -  Absolute paths to each files
-        -  /Users/fionakuo/lab7/test.sh
-        -  /Users/fionakuo/lab7/ListExamplesTests.java
-        -  /Users/fionakuo/lab7/ListExamples.java
-        -  /Users/fionakuo/lab7/ListExamples.class 
-        -  /Users/fionakuo/lab7/ListExamplesTests.class
-        -  /Users/fionakuo/lab7/StringChecker.class
-        -  /Users/fionakuo/lab7/.gitignore
-        -  /Users/fionakuo/lab7/lib/junit-4.13.2.jar
-        -  /Users/fionakuo/lab7/lib/hamcrest-core-1.3.jar
+      -  Absolute paths to each files:
+            -  /Users/fionakuo/lab7/test.sh
+            -  /Users/fionakuo/lab7/ListExamplesTests.java
+            -  /Users/fionakuo/lab7/ListExamples.java
+            -  /Users/fionakuo/lab7/ListExamples.class 
+            -  /Users/fionakuo/lab7/ListExamplesTests.class
+            -  /Users/fionakuo/lab7/StringChecker.class
+            -  /Users/fionakuo/lab7/.gitignore
+            -  /Users/fionakuo/lab7/lib/junit-4.13.2.jar
+            -  /Users/fionakuo/lab7/lib/hamcrest-core-1.3.jar
   
     - All absolute path to each files in `lab7`:
       - ![Image](all_path.png)
