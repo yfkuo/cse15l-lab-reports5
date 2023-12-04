@@ -5,7 +5,7 @@ Design a debugging scenario, and write your report as a conversation on EdStem.
 You should actually set up and run the scenario from your screenshots. It should involve at least a Java file and a bash script. Describing the bug should involve reading some output at the terminal resulting from running one or more commands. Design an error that produces more interesting output than a single message about a syntax or unbound identifier error – showcase some interesting wrong behavior! Feel free to set this up by cloning and breaking some existing code like the grading script or code from class, or by designing something of your own from scratch, etc.
 It should have:
 
-1. The original post from a student with a screenshot showing a symptom and a description of a guess at the bug/some sense of what the failure-inducing input is.
+### 1.The original post from a student with a screenshot showing a symptom and a description of a guess at the bug/some sense of what the failure-inducing input is.
   - Student: Hi TA,
     I ran my program, but a failure-inducing ouput showed up and said `expected:<[a, apple]> but was:<[apple, a]>`.
     Based on the output message says `at ListExamplesTests.testFilter(ListExamplesTests.java:15)`, I am guessing that the symptom must be somehow triggered by line 15 of the `ListExamplesTests.testFilter` function in `ListExamplesTests.java`. I want to start with checking which part of the code trigger this symptom. Is there a step by step way to trace what stores in each variable without having to use `System.out.prinln(some_variable)` to check each variable? Thank you!
@@ -17,12 +17,12 @@ It should have:
     -  ListExamples.java: ![Image](ListExamples_before.png)
     -  ListExamplesTests.java: ![Image](ListExamplesTests.png)
 
-2. A response from a TA asking a leading question or suggesting a command to try (To be clear, you are mimicking a TA here.)
+### 2. A response from a TA asking a leading question or suggesting a command to try (To be clear, you are mimicking a TA here.)
   - TA: Hi,
     A good way to trace what triggers a symptom is to use `jdb`, it allows you to visualize the process step by step.
     When you run `jdb`, you can stop at `ListExamplesTests.testFilter` first, then trace what each code line is doing, and use `next` command to execute to the next line in the current stack frame. Each code line you can use `print` to see what the variables look like, and from there you would be able to find which part of the codes has gone wrong throughout the tracing process.
 
-3. Another screenshot/terminal output showing what information the student got from trying that, and a clear description of what the bug is.
+### 3. Another screenshot/terminal output showing what information the student got from trying that, and a clear description of what the bug is.
   -  Student: Hi TA,
      Thanks for the guidance! After trying out `jdb`, I was able to identify what triggered the symptom more efficiently. It seems like the list variable called `filtered` in `ListExamplesTests.java` should be stored as `filtered = "[a, apple]"`, but it was stored reversely as `filtered = "[apple, a]"` instead because of the line 15 code `result.add(0, s);` from `ListExamplesTests.java`. I found that the reason why `result.add(0, s);` adds strings reversely to `filtered` is because the `0` represents the first position, so `result.add(0, s);` allows string `s` to be added to the front of the `result` list.
 
@@ -30,7 +30,7 @@ It should have:
     -  ![Image](jdb_bash.png)
     -  ![Image](jdb.png)
 
-4. At the end, all the information needed about the setup including:
+### 4. At the end, all the information needed about the setup including:
   - The file & directory structure needed:
     - ![Image](file_directory_structure.png)
       -  Absolute paths to each files(the files & directory structure):
