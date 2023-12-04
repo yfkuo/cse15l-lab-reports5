@@ -55,7 +55,7 @@ It should have:
   - The full command line (or lines) you ran to trigger the bug
     -  I put my command lines in a bash script called test, then I ran bash test.sh to trigger the bug.
     -  ![Image](test_trigger.png)
-    -  ![Image](test_jdb.png)
+    -  ![Image](jdb_bashO.png)
    
   - A description of what to edit to fix the bug:
     - After following TA's guidance, the student was able to identify the list variable `filtered` was what triggered the symptom.
