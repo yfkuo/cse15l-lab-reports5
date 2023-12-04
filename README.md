@@ -7,7 +7,7 @@ Design a debugging scenario, and write your report as a conversation on EdStem. 
 
 - Student: Hi TA,
   I ran my program, but a failure-inducing ouput showed up and said `expected:<[a, apple]> but was:<[apple, a]>`.
-  Based on the output message saying `at ListExamplesTests.testFilter(ListExamplesTests.java:15)`, so I am guessing that the symptom must be somehow triggered by line 15 of the `ListExamplesTests.testFilter` function in `ListExamplesTests.java`. How could I trace which part of the code trigger this symptom? Thank you!
+  Based on the output message saying `at ListExamplesTests.testFilter(ListExamplesTests.java:15)`, I am guessing that the symptom must be somehow triggered by line 15 of the `ListExamplesTests.testFilter` function in `ListExamplesTests.java`. How could I trace which part of the code trigger this symptom? Thank you!
 
 - Here is the screenshot for the symptom output after executing the bash script `bash test.sh`:
   -  ![Image](test_trigger.png)
