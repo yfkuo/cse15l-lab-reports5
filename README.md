@@ -1,20 +1,21 @@
 # Lab Report 5 - Putting it All Together (Week 9)
 
 ## Part 1 – Debugging Scenario
-Design a debugging scenario, and write your report as a conversation on EdStem. It should have:
+Design a debugging scenario, and write your report as a conversation on EdStem.
+You should actually set up and run the scenario from your screenshots. It should involve at least a Java file and a bash script. Describing the bug should involve reading some output at the terminal resulting from running one or more commands. Design an error that produces more interesting output than a single message about a syntax or unbound identifier error – showcase some interesting wrong behavior! Feel free to set this up by cloning and breaking some existing code like the grading script or code from class, or by designing something of your own from scratch, etc.
+It should have:
 
 1. The original post from a student with a screenshot showing a symptom and a description of a guess at the bug/some sense of what the failure-inducing input is.
-
-- Student: Hi TA,
-  I ran my program, but a failure-inducing ouput showed up and said `expected:<[a, apple]> but was:<[apple, a]>`.
-  Based on the output message says `at ListExamplesTests.testFilter(ListExamplesTests.java:15)`, I am guessing that the symptom must be somehow triggered by line 15 of the `ListExamplesTests.testFilter` function in `ListExamplesTests.java`. How could I trace which part of the code trigger this symptom? Thank you!
-
-- Here is the screenshot for the symptom output after executing the bash script `bash test.sh`:
-  -  ![Image](test_trigger.png)
- 
-- Here are the screenshots of how my ListExamples.java and ListExamplesTests.java files look like:
-  -  ListExamples.java: ![Image](ListExamples_before.png)
-  -  ListExamplesTests.java: ![Image](ListExamplesTests.png)
+  - Student: Hi TA,
+    I ran my program, but a failure-inducing ouput showed up and said `expected:<[a, apple]> but was:<[apple, a]>`.
+    Based on the output message says `at ListExamplesTests.testFilter(ListExamplesTests.java:15)`, I am guessing that the symptom must be somehow triggered by line 15 of the `ListExamplesTests.testFilter` function in `ListExamplesTests.java`. I want to start with checking which part of the code trigger this symptom. Is there a step by step way to trace what stores in each variable instead of using `System.out.prinln(some_variable)` to check the variables? Thank you!
+  
+  - Here is the screenshot for the symptom output after executing the bash script `bash test.sh`:
+    -  ![Image](test_trigger.png)
+   
+  - Here are the screenshots of how my ListExamples.java and ListExamplesTests.java files look like:
+    -  ListExamples.java: ![Image](ListExamples_before.png)
+    -  ListExamplesTests.java: ![Image](ListExamplesTests.png)
 
 2. A response from a TA asking a leading question or suggesting a command to try (To be clear, you are mimicking a TA here.)
   - TA: Hi,
@@ -23,49 +24,49 @@ Design a debugging scenario, and write your report as a conversation on EdStem. 
 
 3. Another screenshot/terminal output showing what information the student got from trying that, and a clear description of what the bug is.
   -  Student: Hi TA,
-     Thanks for the guidance! After trying out `jdb`, I was able to identify what triggered the symptom. It seems like the list variable called `filtered` in `ListExamplesTests.java` should be stored as `filtered = "[a, apple]"`, but it was stored reversely as `filtered = "[apple, a]"` instead because of the line 15 code `result.add(0, s);` from `ListExamplesTests.java`. The reason why `result.add(0, s);` adds strings reversely to `filtered` is because the `0` inside `result.add(0, s);` allows string `s` to be added to the front of the `result` list.
+     Thanks for the guidance! After trying out `jdb`, I was able to identify what triggered the symptom more efficiently. It seems like the list variable called `filtered` in `ListExamplesTests.java` should be stored as `filtered = "[a, apple]"`, but it was stored reversely as `filtered = "[apple, a]"` instead because of the line 15 code `result.add(0, s);` from `ListExamplesTests.java`. The reason why `result.add(0, s);` adds strings reversely to `filtered` is because the `0` represents the first position, so `result.add(0, s);` allows string `s` to be added to the front of the `result` list.
 
   - Here is the screenshot of the terminal output after trying `jdb`:
     -  ![Image](jdb.png)
 
 4. At the end, all the information needed about the setup including:
-- The file & directory structure needed:
-  - ![Image](file_directory_structure.png)
-    -  Absolute paths to each files
-      -  /Users/fionakuo/lab7/test.sh
-      -  /Users/fionakuo/lab7/ListExamplesTests.java
-      -  /Users/fionakuo/lab7/ListExamples.java
-      -  /Users/fionakuo/lab7/ListExamples.class 
-      -  /Users/fionakuo/lab7/ListExamplesTests.class
-      -  /Users/fionakuo/lab7/StringChecker.class
-      -  /Users/fionakuo/lab7/.gitignore
-      -  /Users/fionakuo/lab7/lib/junit-4.13.2.jar
-      -  /Users/fionakuo/lab7/lib/hamcrest-core-1.3.jar
-
-  - All absolute path to each files in `lab7`:
-    - ![Image](all_path.png)
- 
-- The contents of each file before fixing the bug:
-  -  ListExamples.java: ![Image](ListExamples_before.png)
-  -  ListExamplesTests.java: ![Image](ListExamplesTests.png)
-  -  test.sh: ![Image](test.png)
- 
-- The full command line (or lines) you ran to trigger the bug
-  -  I put my command lines in a bash script called test, then I ran bash test.sh to trigger the bug.
-  -  ![Image](test_trigger.png)
-  -  ![Image](test_jdb.png)
- 
-- A description of what to edit to fix the bug:
-  - After following TA's guidance, the student was able to identify the list variable `filtered` was what triggered the symptom.
-  - Expected `filtered` was stored as `filtered = "[apple, a]"` instead of `filtered = "[a, apple]"`.
-  - The line 15 code `result.add(0, s);` from `ListExamplesTests.java` was what caused the list variable `filtered` stored strings reversely. 
-  - To fix the bug, I edited the line 15 code from `result.add(0, s);` to `result.add(s);`, so now `filtered` stores strings in ascending order, e.g. `filtered = "[a, apple]"`.
-  - ListExamples.java after fixing the bug:
-    -  ![Image](ListExamples_after.png)
-  - Successful output after fixing the bug:
-    -  ![Image](success_output.png)
+  - The file & directory structure needed:
+    - ![Image](file_directory_structure.png)
+      -  Absolute paths to each files
+        -  /Users/fionakuo/lab7/test.sh
+        -  /Users/fionakuo/lab7/ListExamplesTests.java
+        -  /Users/fionakuo/lab7/ListExamples.java
+        -  /Users/fionakuo/lab7/ListExamples.class 
+        -  /Users/fionakuo/lab7/ListExamplesTests.class
+        -  /Users/fionakuo/lab7/StringChecker.class
+        -  /Users/fionakuo/lab7/.gitignore
+        -  /Users/fionakuo/lab7/lib/junit-4.13.2.jar
+        -  /Users/fionakuo/lab7/lib/hamcrest-core-1.3.jar
   
-You should actually set up and run the scenario from your screenshots. It should involve at least a Java file and a bash script. Describing the bug should involve reading some output at the terminal resulting from running one or more commands. Design an error that produces more interesting output than a single message about a syntax or unbound identifier error – showcase some interesting wrong behavior! Feel free to set this up by cloning and breaking some existing code like the grading script or code from class, or by designing something of your own from scratch, etc.
+    - All absolute path to each files in `lab7`:
+      - ![Image](all_path.png)
+   
+  - The contents of each file before fixing the bug:
+    -  ListExamples.java: ![Image](ListExamples_before.png)
+    -  ListExamplesTests.java: ![Image](ListExamplesTests.png)
+    -  test.sh: ![Image](test.png)
+   
+  - The full command line (or lines) you ran to trigger the bug
+    -  I put my command lines in a bash script called test, then I ran bash test.sh to trigger the bug.
+    -  ![Image](test_trigger.png)
+    -  ![Image](test_jdb.png)
+   
+  - A description of what to edit to fix the bug:
+    - After following TA's guidance, the student was able to identify the list variable `filtered` was what triggered the symptom.
+    - Expected `filtered` was stored as `filtered = "[apple, a]"` instead of `filtered = "[a, apple]"`.
+    - The line 15 code `result.add(0, s);` from `ListExamplesTests.java` was what caused the list variable `filtered` stored strings reversely. 
+    - To fix the bug, I edited the line 15 code from `result.add(0, s);` to `result.add(s);`, so now `result.add(s);` adds strings to `filtered` in ascending order, e.g. `filtered = "[a, apple]"`.
+    - This is how ListExamples.java looks like after fixing the bug:
+      -  ![Image](ListExamples_after.png)
+    - Successful output after fixing the bug:
+      -  ![Image](success_output.png)
+  
+
 
 
 
