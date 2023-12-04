@@ -44,8 +44,8 @@ It should have:
             -  /Users/fionakuo/lab7/lib/junit-4.13.2.jar
             -  /Users/fionakuo/lab7/lib/hamcrest-core-1.3.jar
   
-    - All absolute path to each files in `lab7`:
-      - ![Image](all_path.png)
+      - All absolute path to each files in `lab7`:
+        - ![Image](all_path.png)
    
   - The contents of each file before fixing the bug:
     -  ListExamples.java: ![Image](ListExamples_before.png)
