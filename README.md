@@ -33,7 +33,7 @@ It should have:
 4. At the end, all the information needed about the setup including:
   - The file & directory structure needed:
     - ![Image](file_directory_structure.png)
-      -  Absolute paths to each files:
+      -  Absolute paths to each files(the files & directory structure):
             -  /Users/fionakuo/lab7/test.sh
             -  /Users/fionakuo/lab7/ListExamplesTests.java
             -  /Users/fionakuo/lab7/ListExamples.java
