@@ -65,6 +65,7 @@ It should have:
     - Symtom: `filtered` was stored as `filtered = "[app, b, avocado, apple, b, a]"` instead of `filtered = "[a, b, apple, avocado, b, app]"`.
     - The line 15 code `result.add(0, s);` from `ListExamplesTests.java` was what caused the list variable `filtered` stored strings reversely. 
     - To fix the bug, I edited the line 15 code from `result.add(0, s);` to `result.add(s);`, so now `result.add(s);` adds strings to `filtered` in the same order they appeared in the input list, e.g. `filtered = "[a, b, apple, avocado, b, app]"`.
+      - ![Image](ListExamples_after1.png)
 
 
   
