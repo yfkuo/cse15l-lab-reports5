@@ -9,7 +9,7 @@ It should have:
   - Student: Hi TA,
     I ran my program, but a failure-inducing ouput showed up and said `expected:<[a, b, apple, avocado, b, app]> but was:<[app, b, avocado, apple, b, a]>`. Based on the output message says `at ListExamplesTests.testFilter(ListExamplesTests.java:22)`, I am guessing that the symptom must be somehow triggered by line 22 of the `ListExamplesTests.testFilter` function in `ListExamplesTests.java`. I want to start on checking which part of the code trigger this symptom. Is there a step by step way to trace what stores in each variable without having to use `System.out.prinln(some_variable)` to print each variable? Thank you!
   
-  - Here is the screenshot for the symptom output after executing the bash script `bash test.sh`:
+  - Here is the screenshot of how initial bash script file `test.sh` looks like and the symptom output after executing the bash script with the command line `bash test.sh`:
     -  ![Image](test_trigger.png)
    
   - Here are the screenshots of how my ListExamples.java and ListExamplesTests.java files look like:
