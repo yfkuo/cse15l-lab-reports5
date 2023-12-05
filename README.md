@@ -26,8 +26,6 @@ It should have:
      Thanks for the guidance! After trying out `jdb`, I was able to identify what triggered the symptom more efficiently. It seems like the list variable called `filtered` in `ListExamplesTests.java` should be stored as `filtered = "[a, b, apple, avocado, b, app]"`, but it was stored reversely as `filtered = "[app, b, avocado, apple, b, a]"` instead because of the line 15 code `result.add(0, s);` from `ListExamplesTests.java`. I found that the reason why `result.add(0, s);` adds strings reversely to `filtered` is because the `0` represents the first position, so `result.add(0, s);` allows string `s` to be added to the front of the `result` list.
 
   - Here is the screenshot of the terminal output after trying `jdb`:
-    -  ![Image](jdb_bash.png)
-    -  ![Image](jdb.png)
     -  ![Image](jdb1.png)
     -  ![Image](jdb2.png)
     -  ![Image](jdb3.png)
