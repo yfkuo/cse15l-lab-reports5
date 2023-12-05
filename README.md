@@ -7,7 +7,7 @@ It should have:
 
 ### 1.The original post from a student with a screenshot showing a symptom and a description of a guess at the bug/some sense of what the failure-inducing input is.
   - Student: Hi TA,
-    I ran my program, but a failure-inducing ouput showed up and said `expected:<[a, b, apple, avocado, b, app]> but was:<[app, b, avocado, apple, b, a]>`. Based on the output message says `at ListExamplesTests.testFilter(ListExamplesTests.java:22)`, I am guessing that the symptom must be somehow triggered by line 22 of the `ListExamplesTests.testFilter` function in `ListExamplesTests.java`. I want to start on checking which part of the code trigger this symptom. Is there a step by step way to trace what stores in each variable without having to use `System.out.prinln(some_variable)` to check each variable? Thank you!
+    I ran my program, but a failure-inducing ouput showed up and said `expected:<[a, b, apple, avocado, b, app]> but was:<[app, b, avocado, apple, b, a]>`. Based on the output message says `at ListExamplesTests.testFilter(ListExamplesTests.java:22)`, I am guessing that the symptom must be somehow triggered by line 22 of the `ListExamplesTests.testFilter` function in `ListExamplesTests.java`. I want to start on checking which part of the code trigger this symptom. Is there a step by step way to trace what stores in each variable without having to use `System.out.prinln(some_variable)` to print each variable? Thank you!
   
   - Here is the screenshot for the symptom output after executing the bash script `bash test.sh`:
     -  ![Image](test_trigger.png)
