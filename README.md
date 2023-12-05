@@ -23,7 +23,7 @@ It should have:
 
 ### 3. Another screenshot/terminal output showing what information the student got from trying that, and a clear description of what the bug is.
   -  Student: Hi TA,
-     Thanks for the guidance! After trying out `jdb`, I was able to identify what triggered the symptom more efficiently. It seems like the list variable called `filtered` in `ListExamplesTests.java` should be stored as `filtered = "[a, b, apple, avocado, b, app]"`, but it was stored reversely as `filtered = "[app, b, avocado, apple, b, a]"` instead because of the line 22 code `result.add(0, s);` from `ListExamplesTests.java`. I found that the reason why `result.add(0, s);` adds strings reversely to `filtered` is because the `0` represents the first position, so `result.add(0, s);` allows string `s` to be added to the front of the `result` list.
+     Thanks for the guidance! After trying out `jdb`, I was able to identify what triggered the symptom more efficiently. It seems like the list variable called `filtered` in `ListExamplesTests.java` should be stored as `filtered = "[a, b, apple, avocado, b, app]"`, but it was stored reversely as `filtered = "[app, b, avocado, apple, b, a]"` instead because of the line 15 code `result.add(0, s);` from `ListExamplesTests.java`. I found that the reason why `result.add(0, s);` adds strings reversely to `filtered` is because the `0` represents the first position, so `result.add(0, s);` allows string `s` to be added to the front of the `result` list.
 
   - Here is the screenshot of the terminal output after trying `jdb`:
     -  ![Image](jdb_bash.png)
